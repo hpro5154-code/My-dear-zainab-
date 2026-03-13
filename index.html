@@ -10,7 +10,7 @@ background:black;
 color:white;
 text-align:center;
 font-family:Arial, sans-serif;
-overflow-x:hidden; /* سمحت بالتمرير العمودي حتى تقرأ الكلام براحتها */
+overflow-x:hidden;
 }
 
 /* النجوم */
@@ -55,13 +55,21 @@ margin:15px;
 box-shadow:0 0 15px pink;
 }
 
-/* تنسيق أسطر الحب */
 .love-lines {
-    margin: 40px auto;
-    line-height: 2.5; /* مسافة بين الأسطر */
+    margin: 30px auto;
+    line-height: 2.5;
     font-size: 22px;
     color: #ffe6f2;
     max-width: 80%;
+}
+
+/* تنسيق السطر الجديد */
+.special-line {
+    font-size: 24px;
+    color: #ffb3b3;
+    font-weight: bold;
+    margin: 20px 0;
+    text-shadow: 0 0 5px rgba(255,179,179,0.5);
 }
 
 button {
@@ -105,6 +113,10 @@ z-index: 10;
 <h1>الى زينب ❤️</h1>
 <p>سويت هذا الموقع بس علمودك</p>
 
+<div class="special-line">
+    يكفيني من هذا اليوم أني لمحتُ وجهكِ، وكأن الشمس لم تشرق إلا من عينيكِ.
+</div>
+
 <img src="photo1.jpg">
 <img src="photo2.jpg">
 
@@ -126,7 +138,6 @@ z-index: 10;
 </audio>
 
 <script>
-/* تشغيل الأغنية */
 function playMusic() {
     var audio = document.getElementById("bgMusic");
     audio.play();
