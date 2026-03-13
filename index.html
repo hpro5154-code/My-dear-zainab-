@@ -5,13 +5,12 @@
 <title>الى زينب ❤️</title>
 
 <style>
-
 body{
 background:black;
 color:white;
 text-align:center;
-font-family:Arial;
-overflow:hidden;
+font-family:Arial, sans-serif;
+overflow-x:hidden; /* سمحت بالتمرير العمودي حتى تقرأ الكلام براحتها */
 }
 
 /* النجوم */
@@ -41,10 +40,12 @@ h1{
 color:pink;
 font-size:40px;
 margin-top:40px;
+text-shadow: 0 0 10px pink;
 }
 
 p{
 font-size:20px;
+margin: 10px 0;
 }
 
 img{
@@ -54,13 +55,30 @@ margin:15px;
 box-shadow:0 0 15px pink;
 }
 
-button{
-padding:15px;
-font-size:18px;
-background:pink;
-border:none;
-border-radius:10px;
-cursor:pointer;
+/* تنسيق أسطر الحب */
+.love-lines {
+    margin: 40px auto;
+    line-height: 2.5; /* مسافة بين الأسطر */
+    font-size: 22px;
+    color: #ffe6f2;
+    max-width: 80%;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background: pink;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 15px pink;
+    margin-bottom: 50px;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
 }
 
 /* القلوب */
@@ -69,21 +87,15 @@ position:fixed;
 color:red;
 font-size:20px;
 animation:fall 5s linear infinite;
+z-index: 10;
 }
 
 @keyframes fall{
-0%{
-transform:translateY(-10px);
-opacity:1;
-}
-100%{
-transform:translateY(100vh);
-opacity:0;
-}
+0%{ transform:translateY(-10vh); opacity:1; }
+100%{ transform:translateY(100vh); opacity:0; }
 }
 
 </style>
-
 </head>
 
 <body>
@@ -91,23 +103,35 @@ opacity:0;
 <div class="stars" id="stars"></div>
 
 <h1>الى زينب ❤️</h1>
-
 <p>سويت هذا الموقع بس علمودك</p>
 
 <img src="photo1.jpg">
 <img src="photo2.jpg">
 
-<br>
+<div class="love-lines">
+    في ملامحكِ أمانٌ لا أجدُ له وصفاً..<br>
+    وفي قربكِ وطنٌ أكتفي به عن كلِ المنافي..<br><br>
+    كأنكِ خُلقتِ من طُهر الغمام..<br>
+    وكأن قلبي لم ينبض يوماً إلا ليحتويكِ..<br><br>
+    أحببتكِ بقلبٍ يرى فيكِ كل ما ضاع منه..<br>
+    وبأمنيةٍ أن تظلي دائماً وجهتي الأولى والأخيرة.
+</div>
 
-<button onclick="alert('احبك ❤️')">
-اضغط هنا
+<button onclick="playMusic()">
+إضغطي هنا 🎵
 </button>
 
-<audio autoplay loop>
+<audio id="bgMusic" loop>
 <source src="song.mp3" type="audio/mpeg">
 </audio>
 
 <script>
+/* تشغيل الأغنية */
+function playMusic() {
+    var audio = document.getElementById("bgMusic");
+    audio.play();
+    alert("أحبكِ ❤️");
+}
 
 /* النجوم */
 for(let i=0;i<100;i++){
@@ -124,6 +148,7 @@ const heart=document.createElement("div");
 heart.classList.add("heart");
 heart.innerHTML="❤️";
 heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
 document.body.appendChild(heart);
 
 setTimeout(()=>{
@@ -132,7 +157,6 @@ heart.remove();
 }
 
 setInterval(createHeart,400);
-
 </script>
 
 </body>
