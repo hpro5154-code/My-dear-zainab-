@@ -63,7 +63,6 @@ box-shadow:0 0 15px pink;
     max-width: 80%;
 }
 
-/* تنسيق السطر الجديد */
 .special-line {
     font-size: 24px;
     color: #ffb3b3;
@@ -140,8 +139,12 @@ z-index: 10;
 <script>
 function playMusic() {
     var audio = document.getElementById("bgMusic");
-    audio.play();
-    alert("أحبكِ ❤️");
+    audio.play(); // الأغنية تشتغل أولاً
+    
+    // تأخير بسيط للرسالة حتى لا تقطع التشغيل
+    setTimeout(function() {
+        alert("أحبكِ ❤️");
+    }, 200);
 }
 
 /* النجوم */
